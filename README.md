@@ -108,6 +108,8 @@ vercel deploy
 
 当前环境的 `api.vercel.com` 不可用，因此本次未执行真实部署。部署后在 Vercel 项目环境变量中配置上述变量即可。
 
+> 部署构建由 `@vercel/node` 把 `src/**/*.ts` 转译为 `.js`，但源码中的相对导入使用了 `.ts` 后缀。`tsconfig.json` 必须保留 `"rewriteRelativeImportExtensions": true`，否则转译后的 `src/app.js` 仍会导入 `.ts` 文件，运行时报 `ERR_MODULE_NOT_FOUND`。
+
 ## 安全说明
 
 - 根路径代理只允许固定主机白名单，并复用 SSRF 防护。
