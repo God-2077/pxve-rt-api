@@ -1,0 +1,26 @@
+{
+  "name": "pxve-api-vercel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev:local": "vercel dev --local --listen 3000",
+    "type-check": "tsc --noEmit",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "check": "pnpm type-check && pnpm test"
+  },
+  "dependencies": {
+    "cheerio": "1.1.2",
+    "cookie": "1.1.1",
+    "hono": "^4.13.19",
+    "qs": "^6.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/qs": "^6.15.1",
+    "typescript": "^5.9.3"
+  }
+}
